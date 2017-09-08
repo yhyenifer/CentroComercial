@@ -13,7 +13,7 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage; //esto cambia  para poner el login
+  rootPage: any = 'LoginPage'  //HomePage; //esto cambia  para poner el login
 
   pages: Array<{title: string, component: any}>;
 
@@ -24,7 +24,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Login', component: ListPage }
+      { title: 'Login', component: LoginPage }
     ];
 
   }
