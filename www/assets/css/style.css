@@ -1,0 +1,11 @@
+.alert-md .alert-button {
+    color: #000;
+  
+}
+
+.item-input-has-focus .label-md[stacked],
+.input-has-focus .label-md[stacked],
+.item-input-has-focus .label-md[floating],
+.input-has-focus .label-md[floating] {
+  color: #000;
+}
