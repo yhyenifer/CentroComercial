@@ -3,9 +3,9 @@
   
 }
 
-.item-input-has-focus .label-md[stacked],
-.input-has-focus .label-md[stacked],
-.item-input-has-focus .label-md[floating],
-.input-has-focus .label-md[floating] {
-  color: #000;
+
+button.login.disable-hover.button.button-md.button-default.button-default-md.button-block.button-block-md
+{
+   color: #000;
+    background-color: #f7ef36;
 }
