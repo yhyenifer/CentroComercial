@@ -25,34 +25,14 @@ export class MyApp {
     public splashScreen: SplashScreen,
     private auth: AuthProvider) {
      platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.auth.Session.subscribe(session=>{
-        if(session){
-            this.rootPage = 'HomePage';
-             // used for an example of ngFor and navigation
-            this.pages = [
-            { title: 'Home', component: HomePage },
-            { title: 'List', component: ListPage },
-            { title: 'Login', component: LoginPage }
-            ];
-        }
-          else{
-            this.rootPage = 'LoginPage';
-            
-          }
-      });
-      statusBar.styleDefault();
-      splashScreen.hide();
-       //this.db.openDb()
-       //.then(() => this.db.createTableSitios())
+      this.pages = [
+        { title: 'Home', component: HomePage },
+        { title: 'List', component: ListPage },
+        { title: 'Login', component: LoginPage }
+        ];
     });
   }
 
-
-   
-
-  
 
   initializeApp() {
     this.platform.ready().then(() => {
