@@ -15,7 +15,7 @@ import { AuthProvider } from '../providers/auth/auth';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = 'LoginPage'  //HomePage; //esto cambia  para poner el login
+  rootPage: any = 'homeClientePage'  //HomePage; //esto cambia  para poner el login
 
   pages: Array<{title: string, component: any}>;
 
