@@ -1,20 +1,12 @@
+
 import { User } from '../../app/models/user';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthProvider } from '../../providers/auth/auth';
-<<<<<<< HEAD
 import { FirebaseServicePrivider } from '../../providers/firebase-service/firebase-service';
 import { FirebaseObjectObservable} from 'angularfire2/database';
-/**
- * Generated class for the LoginPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-=======
 
->>>>>>> YH
 
 @IonicPage()
 @Component({
@@ -22,7 +14,7 @@ import { FirebaseObjectObservable} from 'angularfire2/database';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
+  error:any; 
   user= { } as User;
 
   tipo: FirebaseObjectObservable<any>;
@@ -31,27 +23,15 @@ export class LoginPage {
   constructor(
     private afAuth: AngularFireAuth,
   	public navCtrl: NavController,
-<<<<<<< HEAD
-  	public navParams: NavParams,
   	public auth : AuthProvider,
     public alertCtrl : AlertController,
+    public navParams : NavParams,
     public firebaseService: FirebaseServicePrivider
-=======
-    public navParams: NavParams,
-    public auth : AuthProvider,
-    public alertCtrl : AlertController
->>>>>>> YH
     ) {
 
-      this.tipo = this.firebaseService.getUserTipo('WceTUcZdrKQXaRYR6Q78r2TczSq2');
-      this.tipo.subscribe(userSnapshot => {
-        
-        console.log('field name:  ', userSnapshot.tipo);
-});
-      
+           
 
-  }
-
+    }
  
 //creacion de usuario (esta correcto)
   signin(){
@@ -76,19 +56,41 @@ export class LoginPage {
 
   }
 //autenticar
-  login(user: User) 
+ async login(user: User) 
 {
- try{ 
+
+     
     const result= this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password ) 
-   this.navCtrl.push('HomeClientePage');
-  }
- catch (e) {
+ .then((success)=>{
+   const authObserv= this.afAuth.authState.subscribe(auth => {
+     
+      this.tipo= this.firebaseService.getUserTipo(auth.uid);
+      this.tipo.subscribe(usersnapshot=>{
+        console.log('tipo de usuario: ',usersnapshot.tipo);
+        if (usersnapshot.tipo=="usuario"){
+          this.navCtrl.push('HomeClientePage');
+        }
+        else{
+          this.navCtrl.push('HomeAdminPage');
+          
+        }
+      })
+      console.log("uid: "+ auth.uid);
+      authObserv.unsubscribe();
+    
+  
+  })
+}).catch((err)=>{
   let alert = this.alertCtrl.create({
-    title: 'Error',
-    subTitle: e.message,
+    title: 'Autenticación Incorrecta',
+    subTitle: "Verifica tú Email y Contraseña",
     buttons: ['Aceptar']
   });
   alert.present();
- }
+}) 
+  
+  
+    //pendiiente limpiar pagina de login al ir atras
+  
 }
 }
