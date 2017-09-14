@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
+import { FirebaseServicePrivider } from '../../providers/firebase-service/firebase-service';
+import { FirebaseObjectObservable} from 'angularfire2/database';
 /**
  * Generated class for the LoginPage page.
  *
@@ -17,12 +19,24 @@ export class LoginPage {
 
   user= { email : '', password : ''};
 
+  tipo: FirebaseObjectObservable<any>;
+
+
   constructor(
   	public navCtrl: NavController,
   	public navParams: NavParams,
   	public auth : AuthProvider,
-    public alertCtrl : AlertController
+    public alertCtrl : AlertController,
+    public firebaseService: FirebaseServicePrivider
     ) {
+
+      this.tipo = this.firebaseService.getUserTipo('WceTUcZdrKQXaRYR6Q78r2TczSq2');
+      this.tipo.subscribe(userSnapshot => {
+        
+        console.log('field name:  ', userSnapshot.tipo);
+});
+      
+
   }
 
   ionViewDidLoad() {
@@ -30,18 +44,8 @@ export class LoginPage {
   }
 
   signin(){
-    this.auth.registerUser(this.user.email,this.user.password)
-    .then((user) => {
-      // El usuario se ha creado correctamente
-    })
-    .catch(err=>{
-      let alert = this.alertCtrl.create({
-        title: 'Error',
-        subTitle: err.message,
-        buttons: ['Aceptar']
-      });
-      alert.present();
-    })
+    
+    this.firebaseService
 
   }
 
