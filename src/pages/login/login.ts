@@ -59,18 +59,21 @@ export class LoginPage {
  async login(user: User) 
 {
 
-     
+  if(user.email!=null && user.password!=null){
+
+  
     const result= this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password ) 
+    
  .then((success)=>{
    const authObserv= this.afAuth.authState.subscribe(auth => {
      
       this.tipo= this.firebaseService.getUserTipo(auth.uid);
       this.tipo.subscribe(usersnapshot=>{
         console.log('tipo de usuario: ',usersnapshot.tipo);
-        if (usersnapshot.tipo=="usuario"){
+        if (usersnapshot.tipo=="cliente"){
           this.navCtrl.push('HomeClientePage');
         }
-        else{
+        if (usersnapshot.tipo=="admin"){
           this.navCtrl.push('HomeAdminPage');
           
         }
@@ -92,5 +95,14 @@ export class LoginPage {
   
     //pendiiente limpiar pagina de login al ir atras
   
+}
+else{
+  let alert = this.alertCtrl.create({
+    title: 'Autenticación Incorrecta',
+    subTitle: "Faltan datos",
+    buttons: ['Aceptar']
+  });
+  alert.present();
+}
 }
 }
