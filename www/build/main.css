@@ -19900,3 +19900,39 @@ ion-navbar.toolbar {
     padding-top: calc(16px + 20px);
   }
 }
+
+page-home-cliente .toolbar-background-md {
+  background: #f7ef36;
+}
+
+page-home-cliente .text-center {
+  text-align: center;
+}
+
+page-home-cliente .gana {
+  max-width: 50%;
+}
+
+page-home-cliente .camara {
+  background-color: red;
+  border-radius: 25em;
+}
+
+page-home-cliente .letra12 {
+  font-size: 12px;
+}
+
+page-home-cliente .row {
+  margin-left: 38px;
+  margin-right: 0;
+  margin-bottom: 2em;
+}
+
+page-home-cliente .swiper-pagination-bullet-active {
+  background: #f7ef36;
+}
+
+page-login button.auth {
+  color: #000;
+  background-color: #f7ef36;
+}
