@@ -69,10 +69,8 @@ export class HomeClientePage {
       catch(e){
         console.log(e);
       }
-      this.navCtrl.push('SubirFacturaPage',{
-        base64Image: this.base64Image
-      });
-      ;
+      //this.upload();
+      
   }
 
   async sacarFoto(): Promise<any>{
@@ -90,35 +88,37 @@ export class HomeClientePage {
       console.log(e);
     }
 }
-  agregarFoto(filename){
+  // agregarFoto(filename){
 
-    //this.uid = 'asfdfhsfhgjsfhj';
+  //   //this.uid = 'asfdfhsfhgjsfhj';
 
-    this.infoFactura$.push({
+  //   this.infoFactura$.push({
 
-      uid: this.uid,
-      almacen: 'cita',
-      estado: 'sinValidar',
-      url: `img/facturas/'${filename}'.jpg`
+  //     uid: this.uid,
+    
+  //     almacen: 'cita',
+  //     estado: 'sinValidar',
+  //     url: `img/facturas/'${filename}'.jpg`
 
-    })
-  }
+  //   })
+  // }
 
   upload() {
-    this.navCtrl.push('LoginPage',{
-      base64Image: this.base64Image
+    this.navCtrl.push('SubirFacturaPage',{
+      base64Image: this.base64Image,
+      uid: this.uid
     });
-    let storageRef = firebase.storage().ref();
-    // Create a timestamp as filename
-    const filename = Math.floor(Date.now() / 1000);
+    // let storageRef = firebase.storage().ref();
+    // // Create a timestamp as filename
+    // const filename = Math.floor(Date.now() / 1000);
 
-    // Create a reference to 'images/todays-date.jpg'
-    const imageRef = storageRef.child(`img/facturas/${filename}.jpg`);
-    imageRef.putString(this.base64Image, firebase.storage.StringFormat.DATA_URL).then((snapshot)=> {
-      // Do something here when the data is succesfully uploaded!
-      this.showSuccesfulUploadAlert();
-      this.agregarFoto(filename);
-     });
+    // // Create a reference to 'images/todays-date.jpg'
+    // const imageRef = storageRef.child(`img/facturas/${filename}.jpg`);
+    // imageRef.putString(this.base64Image, firebase.storage.StringFormat.DATA_URL).then((snapshot) => {
+    //   // Do something here when the data is succesfully uploaded!
+    //   this.showSuccesfulUploadAlert();
+    //   this.agregarFoto(filename);
+    // });
 
   }
 

@@ -70,7 +70,9 @@ export class LoginPage {
       this.tipo.subscribe(usersnapshot=>{
         console.log('tipo de usuario: ',usersnapshot.tipo);
         if (usersnapshot.tipo=="cliente"){
-          this.navCtrl.push('HomeClientePage');
+          this.navCtrl.push('HomeClientePage',{
+            uid: auth.uid
+          });
         }
         if (usersnapshot.tipo=="admin"){
           this.navCtrl.push('HomeAdminPage');
