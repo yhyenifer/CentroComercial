@@ -3,10 +3,16 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import firebase from 'firebase';
  import { LoginPage } from '../pages/login/login';
  import { AngularFireAuth } from 'angularfire2/auth';
-
+ export const firebaseConfig = {
+  apiKey: "AIzaSyDUz7IJOCgsz5Zk9HBoU0cwF9z2Q229LtI",
+  authDomain: "tiendq-3d47a.firebaseapp.com",
+  databaseURL: "https://tiendq-3d47a.firebaseio.com",
+  storageBucket: "tiendq-3d47a.appspot.com",
+  messagingSenderId: "12950516640"
+};
 
 @Component({
   templateUrl: 'app.html'
@@ -41,12 +47,13 @@ export class MyApp {
 
 
   initializeApp() {
-    // this.platform.ready().then(() => {
-    //   // Okay, so the platform is ready and our plugins are available.
-    //   // Here you can do any higher level native things you might need.
-    //   // this.statusBar.styleDefault();
-    //   this.splashScreen.hide();
-    // });
+    this.platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+      firebase.initializeApp(firebaseConfig);
+    });
   }
 
   openPage(page) {
@@ -58,7 +65,6 @@ export class MyApp {
 salir(){
 console.log("presionamos salir");
 this.afAuth.auth.signOut();
-
 this.platform.exitApp();
 }
 
