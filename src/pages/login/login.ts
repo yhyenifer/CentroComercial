@@ -8,6 +8,7 @@ import { FirebaseServicePrivider } from '../../providers/firebase-service/fireba
 import { FirebaseObjectObservable} from 'angularfire2/database';
 
 
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -28,8 +29,6 @@ export class LoginPage {
     public navParams : NavParams,
     public firebaseService: FirebaseServicePrivider
     ) {
-
-           
 
     }
  
@@ -62,7 +61,7 @@ export class LoginPage {
   if(user.email!=null && user.password!=null){
 
   
-    const result= this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password ) 
+    this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password ) 
     
  .then((success)=>{
    const authObserv= this.afAuth.authState.subscribe(auth => {
@@ -105,4 +104,6 @@ else{
   alert.present();
 }
 }
+
+ 
 }

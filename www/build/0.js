@@ -1,14 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 409:
+/***/ 408:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeClientePageModule", function() { return HomeClientePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SubirFacturaPageModule", function() { return SubirFacturaPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_cliente__ = __webpack_require__(411);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__subir_factura__ = __webpack_require__(411);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomeClientePageModule = (function () {
-    function HomeClientePageModule() {
+var SubirFacturaPageModule = (function () {
+    function SubirFacturaPageModule() {
     }
-    return HomeClientePageModule;
+    return SubirFacturaPageModule;
 }());
-HomeClientePageModule = __decorate([
+SubirFacturaPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__home_cliente__["a" /* HomeClientePage */],
+            __WEBPACK_IMPORTED_MODULE_2__subir_factura__["a" /* SubirFacturaPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home_cliente__["a" /* HomeClientePage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__subir_factura__["a" /* SubirFacturaPage */]),
         ],
     })
-], HomeClientePageModule);
+], SubirFacturaPageModule);
 
-//# sourceMappingURL=home-cliente.module.js.map
+//# sourceMappingURL=subir-factura.module.js.map
 
 /***/ }),
 
@@ -42,10 +42,9 @@ HomeClientePageModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeClientePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angularfire2_auth__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(47);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SubirFacturaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(79);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,34 +56,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 /**
- * Generated class for the HomeClientePage page.
+ * Generated class for the SubirFacturaPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var HomeClientePage = (function () {
-    function HomeClientePage(navCtrl, navParams, afAuth) {
+var SubirFacturaPage = (function () {
+    function SubirFacturaPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.afAuth = afAuth;
     }
-    HomeClientePage.prototype.ionViewDidLoad = function () {
+    SubirFacturaPage.prototype.ionViewDidLoad = function () {
     };
-    return HomeClientePage;
+    SubirFacturaPage.prototype.agregar = function () {
+    };
+    SubirFacturaPage.prototype.subir = function () {
+        this.navCtrl.push('HomeClientePage');
+    };
+    return SubirFacturaPage;
 }());
-HomeClientePage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
-        selector: 'page-home-cliente',template:/*ion-inline-start:"C:\Users\yenifer\Documents\uniquindio\SOFT2\CentroComercial\src\pages\home-cliente\home-cliente.html"*/'<!--\n\n  Generated template for the HomeClientePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      Menú\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n<div class="text-center"> \n\n<h4 class="text-center">Súbe aquí tú factura para que acumules puntos y redimas por grandes premios.</h4>\n\n<img class="gana" src="../../assets/img/gana.png">\n\n<p>Tómale una foto a tú factura</p>\n\n<button ion-button icon-only class="camara">\n\n    <ion-icon name="camera"></ion-icon>\n\n  </button>\n\n  <p>O súbela desde tus imágenes</p>\n\n  <button ion-button icon-only class="camara">\n\n      <ion-icon name="image"></ion-icon>\n\n  </button>\n\n</div>\n\n<div class="slide_eventos">\n\n  \n\n    <ion-slides pager  autoplay="2000" loop="true" speed="1000">\n\n        \n\n          <ion-slide >\n\n              <div class="row">\n\n                <img src="../../assets/img/evento.png">\n\n                <p class="letra12">Descripción del evento1</p>\n\n              </div>\n\n          </ion-slide>\n\n        \n\n          <ion-slide >\n\n              <div class="row">\n\n                  <img src="../../assets/img/evento.png">\n\n                  <p class="letra12">Descripción del evento2</p>\n\n                </div>\n\n          </ion-slide>\n\n        \n\n          <ion-slide >\n\n              <div class="row">\n\n                  <img src="../../assets/img/evento.png">\n\n                  <p class="letra12">Descripción del evento3</p>\n\n                </div>\n\n          </ion-slide>\n\n        \n\n        </ion-slides>\n\n      \n\n</div> \n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\yenifer\Documents\uniquindio\SOFT2\CentroComercial\src\pages\home-cliente\home-cliente.html"*/,
+SubirFacturaPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-subir-factura',template:/*ion-inline-start:"C:\Users\yenifer\Documents\uniquindio\SOFT2\CentroComercial\src\pages\subir-factura\subir-factura.html"*/'<!--\n  Generated template for the SubirFacturaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  \n    <ion-navbar>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title>\n        Subir Factura\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n\n<ion-content padding>\n    <div class="text-center"> \n        <!-- aqui va la imagen -->\n\n    <img class="factura" src="https://firebasestorage.googleapis.com/v0/b/tiendq-3d47a.appspot.com/o/img%2Fadmin%2Ffactura-bar.jpg?alt=media&token=d2229be6-5d4e-42fc-b0b0-441cf835a33c">\n        \n    </div>\n    <div class="text-center"> \n        <h4>¿Nombre estas seguro de subir esta factura?</h4>\n    </div>\n    <div class="text-center">\n        <button ion-button icon-only class="botones si" (click)="agregar()" >\n            Si\n        </button>\n        <button ion-button icon-only class="botones no" (click)="subir()" >\n            No\n        </button>\n    </div>\n    <div class="text-center">\n    <img class="gana" src="https://firebasestorage.googleapis.com/v0/b/tiendq-3d47a.appspot.com/o/img%2Fadmin%2Fgana.png?alt=media&token=c6d87ebf-ca83-40a6-a5e6-a54e0dba188f">\n    <p>Súbe tú factura para que acumules puntos y redimas por grandes premios.</p>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\yenifer\Documents\uniquindio\SOFT2\CentroComercial\src\pages\subir-factura\subir-factura.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_0_angularfire2_auth__["a" /* AngularFireAuth */]])
-], HomeClientePage);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+], SubirFacturaPage);
 
-//# sourceMappingURL=home-cliente.js.map
+//# sourceMappingURL=subir-factura.js.map
 
 /***/ })
 

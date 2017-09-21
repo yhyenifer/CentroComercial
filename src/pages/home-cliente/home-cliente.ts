@@ -1,4 +1,3 @@
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -17,12 +16,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class HomeClientePage {
 
   constructor(public navCtrl: NavController, 
-    public navParams: NavParams,
-    private afAuth: AngularFireAuth) {
+    public navParams: NavParams
+    ) {
   }
 
   ionViewDidLoad() {
    
+  }
+
+  subir(){
+    console.log("subir factura");
+    this.navCtrl.push('SubirFacturaPage');
   }
 
 }

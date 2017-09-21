@@ -1,31 +1,40 @@
+import { HomeClientePage } from '../pages/home-cliente/home-cliente';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-
-import { LoginPage } from '../pages/login/login';
+ import { LoginPage } from '../pages/login/login';
+ import { AngularFireAuth } from 'angularfire2/auth';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
+   login: LoginPage;
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = 'LoginPage'  //HomePage; //esto cambia  para poner el login
-
   pages: Array<{title: string, component: any}>;
-
+  
   constructor(
     public platform: Platform, 
     public statusBar: StatusBar, 
-    public splashScreen: SplashScreen) {
+    public splashScreen: SplashScreen,
+    private afAuth: AngularFireAuth
+    
+  ) {
      platform.ready().then(() => {
        
       this.pages = [
      
-        { title: 'Login', component: LoginPage }
+        { title: 'Subir Facturas', component: HomeClientePage },
+        { title: 'Mis Facturas', component: HomeClientePage }, // pendiente de cambio
+        { title: 'Mis Premios', component: HomeClientePage }, // pendiente de cambio
+        { title: 'Premios', component: HomeClientePage }, // pendiente de cambio
+        { title: 'Almacenes', component: HomeClientePage }, // pendiente de cambio
+        { title: 'Eventos', component: HomeClientePage } // pendiente de cambio
         ];
     });
   }
@@ -45,5 +54,12 @@ export class MyApp {
     // // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+salir(){
+console.log("presionamos salir");
+this.afAuth.auth.signOut();
+
+this.platform.exitApp();
+}
 
 }
